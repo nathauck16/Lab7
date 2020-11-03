@@ -3,21 +3,19 @@ import java.awt.event.*;
 import java.awt.*;
 
 class Counter implements ActionListener {
-  JLabel label;
-  JLabel leftCountLabel;
-  JLabel rightCountLabel;
+  JLabel label1;
 
-  int rightCount= 0;
-  int leftCount = 0;
-
-  
-
-      JFrame frame = new JFrame("Let's Count");
+  Counter(){
+      JFrame frame = new JFrame("Let's count");
       frame.setLayout(new FlowLayout());
       frame.setSize(200,110);
 
-      JButton left = new JButton("Left");
-      JButton Right = new JButton("Right");
+      //when not commented out, below code will crash our IDE when GUI is exited 
+      //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+      JButton left = new JButton("Left ");
+      JButton right = new JButton("Right ");
 
       left.addActionListener(this);
       right.addActionListener(this);
@@ -25,25 +23,18 @@ class Counter implements ActionListener {
       frame.add(left);
       frame.add(right);
 
-      
-
-      directions = new JLabel("Press a button");
-      leftCountLabel = new JLabel("Left Count: ");
-      rightCountLabel = new JLabel("Right Count: ");
-
-      frame.add(leftCountLabel, BorderLayout.WEST );
-      frame.add(rightCountLabel, BorderLayout.EAST );
-      frame.add(directions, BorderLayout.SOUTH );
+      label1 = new JLabel("Press a button");
+      frame.add(label1, BorderLayout.SOUTH);
       frame.setVisible(true);
 
   }
 
 public void actionPerformed(ActionEvent ae) {
-  if(ae.getActionCommand().equals("Left")){
-      label.setText("You pressed Left");
+  if(ae.getActionCommand().equals("Left ")){
+      label1.setText("You pressed Left");
   }
   else {
-      label.setText("You pressed Right");
+      label1.setText("You pressed Right");
   }
 }
-} 
+}
