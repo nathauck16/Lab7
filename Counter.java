@@ -4,33 +4,46 @@ import java.awt.*;
 
 class Counter implements ActionListener {
   JLabel label;
+  JLabel leftCountLabel;
+  JLabel rightCountLabel;
 
-  Counter(){
-      JFrame frame = new JFrame("Button");
+  int rightCount= 0;
+  int leftCount = 0;
+
+  
+
+      JFrame frame = new JFrame("Let's Count");
       frame.setLayout(new FlowLayout());
-      frame.setSize(220,90);
+      frame.setSize(200,110);
 
-      JButton Left = new JButton("Left");
+      JButton left = new JButton("Left");
       JButton Right = new JButton("Right");
 
-      Left.addActionListener(this);
-      Right.addActionListener(this);
+      left.addActionListener(this);
+      right.addActionListener(this);
 
-      frame.add(Left);
-      frame.add(Right);
+      frame.add(left);
+      frame.add(right);
 
-      label = new JLabel("Press a button");
-      frame.add(label);
+      
+
+      directions = new JLabel("Press a button");
+      leftCountLabel = new JLabel("Left Count: ");
+      rightCountLabel = new JLabel("Right Count: ");
+
+      frame.add(leftCountLabel, BorderLayout.WEST );
+      frame.add(rightCountLabel, BorderLayout.EAST );
+      frame.add(directions, BorderLayout.SOUTH );
       frame.setVisible(true);
 
   }
 
 public void actionPerformed(ActionEvent ae) {
-  if(ae.getActionCommand().equals("Up")){
-      label.setText("You pressed up");
+  if(ae.getActionCommand().equals("Left")){
+      label.setText("You pressed Left");
   }
   else {
-      label.setText("You pressed down");
+      label.setText("You pressed Right");
   }
 }
 } 
