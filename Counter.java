@@ -12,7 +12,7 @@ class Counter implements ActionListener {
   Counter(){
       JFrame frame = new JFrame("Let's count");
       frame.setLayout(new FlowLayout());
-      frame.setSize(200,110);
+      frame.setSize(300,210);
 
       leftCount = 0;
       rightCount = 0;
@@ -33,31 +33,38 @@ class Counter implements ActionListener {
       frame.add(right);
       frame.add(reset, BorderLayout.SOUTH);
 
-      leftLabel = new JLabel("Left Count: ");
-      rightLabel = new JLabel("Right Count: ");
+      leftLabel = new JLabel("Left Count: "  + leftCount);
+      rightLabel = new JLabel("Right Count: " + rightCount);
       label1 = new JLabel("Press a button");
 
       frame.add(label1, BorderLayout.SOUTH);
-      frame.add(leftLabel);
-      frame.add(rightLabel);
+      frame.add(leftLabel, BorderLayout.EAST);
+      frame.add(rightLabel, BorderLayout.WEST);
       frame.setVisible(true);
 
   }
 
+
+//action event
 public void actionPerformed(ActionEvent ae) {
   if(ae.getActionCommand().equals("Left ")){
       leftCount ++;
       label1.setText("You pressed Left");
       leftLabel.setText("Left Count: " + leftCount);
+
   }
   else if(ae.getActionCommand().equals("Right ")) {
       rightCount ++;
       label1.setText("You pressed Right");
-      rightLabel.setText("Right Count: " + rightLabel);
+      rightLabel.setText("Right Count: " + rightCount);
   }
   else if(ae.getActionCommand().equals("Reset ")) {
       leftCount = 0;
       rightCount = 0;
+      label1.setText("Press a button");
+      leftLabel.setText("Left Count: " + leftCount);
+      rightLabel.setText("Right Count: " + rightCount);
+
   }
 }
 }
