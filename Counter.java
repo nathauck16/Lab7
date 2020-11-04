@@ -12,7 +12,8 @@ class Counter implements ActionListener {
   Counter(){
       JFrame frame = new JFrame("Let's count");
       frame.setLayout(new FlowLayout());
-      frame.setSize(300,210);
+      //had to use a bigger frame size so i could actually see all the text
+      frame.setSize(400,310);
 
       leftCount = 0;
       rightCount = 0;
